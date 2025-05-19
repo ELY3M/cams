@@ -37,6 +37,8 @@ interface Player {
             mediaPlayer.videoScale = MediaPlayer.ScaleType.SURFACE_FILL
         }
 
+        mediaPlayer.videoScale = MediaPlayer.ScaleType.SURFACE_FILL
+
         mediaPlayer.setEventListener {
             when (it.type) {
                 MediaPlayer.Event.Buffering -> if (it.buffering == 100f)
