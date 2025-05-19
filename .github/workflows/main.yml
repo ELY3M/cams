@@ -68,13 +68,8 @@ jobs:
           BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
         
       - name: Output Signed APK
-        env:
-          SIGNEDAPKNAME: ${{ steps.sign_app.outputs.signedReleaseFile }} 
         run: |
-         echo 'Signed APK is ${{ steps.sign_app.outputs.signedReleaseFile }}'
-         SIGNEDAPKNAME=${{ steps.sign_app.outputs.signedReleaseFile }}
-         echo "SIGNEDAPKNAME=$SIGNEDAPKNAME" >> $GITHUB_ENV
-         echo SIGNEDAPKNAME: $SIGNEDAPKNAME
+          ls -la app/build/outputs/apk/release/
                 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
@@ -83,7 +78,7 @@ jobs:
           prerelease: false
           draft: false
           body: ${{ github.event.head_commit.message }}
-          files: ${{ steps.sign_app.outputs.signedReleaseFile }}
+          files: app/build/outputs/apk/release/*.apk
           name: APK Release ${{ github.run_number }} 
 
           
