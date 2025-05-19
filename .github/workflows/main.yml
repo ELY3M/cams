@@ -78,7 +78,7 @@ jobs:
           prerelease: false
           draft: false
           body: ${{ github.event.head_commit.message }}
-          files: app/build/outputs/apk/release/*.apk
+          files: app/build/outputs/apk/release/*-signed.apk
           name: APK Release ${{ github.run_number }} 
 
           
