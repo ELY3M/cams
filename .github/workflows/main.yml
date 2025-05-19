@@ -45,7 +45,8 @@ jobs:
         
       - name: current dir
         run: | 
-            pwd    
+            pwd 
+            ls -la /home/runner/work/cams/cams/
 
       - name: Setup build tool version variable
         shell: bash
